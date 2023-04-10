@@ -3311,3 +3311,7 @@ details-disclosure > details {
     }
   }
 }
+
+.header__heading-link .h2 {
+  color: purple; font: size 40px; 
+}
