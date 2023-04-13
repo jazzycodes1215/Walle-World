@@ -1,0 +1,171 @@
+<div id="bubble-link-{{ section.id }}" class="bubble-linklist-wrapper">
+  <ul class="bubble-linklist_list">
+   {%- if section.settings.linklist != blank -%}
+   {%- for link in linklists[section.settings.linklist].links -%} 
+    <li class="bubble-linklist-item color-scheme-- {%- cycle '1', '2', '3', '4', '5', '6', '7', '8', '9' -%}">
+      <a href="{{ link.url }}">{{ link.title }}</a></li>
+  {% endfor %}
+  {%- else -%}
+     <li class="bubble-linklist_placeholder"><h2>Select a linklist in the settings!</h2></li>
+   {%- endif -%}
+    
+  </ul>
+</div>
+<style type="text/css">
+  .bubble-linklist_placeholder {
+    background-color: #ccc;
+    margin-right: 40px;
+    text-align: center;
+    padding: 40px;
+  }
+  .bubble-linklist_placeholder h2 {
+    color: #787272;
+  }
+  .bubble-linklist_list {
+    list-style: none;
+  } 
+  .bubble-linklist-item {
+    display: inline-block;
+    border-radius: 48px;
+    line-height: 48px;
+    padding: 0 8px;
+    margin:  0 4px 10px 0;
+    }
+    .bubble-linklist-item a {
+      text-decoration: none;
+      color: {{ section.settings.text_color }};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--1 {
+       background-color: {{section.settings.color_1}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--2 {
+       background-color: {{section.settings.color_2}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--3 {
+       background-color: {{section.settings.color_3}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--4 {
+       background-color: {{section.settings.color_4}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--5 {
+       background-color: {{section.settings.color_5}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--6 {
+       background-color: {{section.settings.color_6}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--7 {
+       background-color: {{section.settings.color_7}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--8 {
+       background-color: {{section.settings.color_8}};
+    }
+   #bubble-link-{{ section.id }} .color-scheme--9 {
+       background-color: {{section.settings.color_9}};
+    }
+</style>
+{% schema %}
+{
+  "name": "Bubble linklist",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "linklist",
+      "label": "Linklist"
+    },
+    {
+      "type": "header",
+      "content": "colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_1",
+      "label": "Color one",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_2",
+      "label": "Color two",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_3",
+      "label": "Color three",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_4",
+      "label": "Color four",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_5",
+      "label": "Color five",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_6",
+      "label": "Color six",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_7",
+      "label": "Color seven",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_8",
+      "label": "Color eight",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_9",
+      "label": "Color nine",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bubble Linklist",
+      "settings": {
+        "color_1": "#334fb4",
+        "color_2": "#c08fff",
+        "color_3": "#c64646",
+        "color_4": "#8f0d0d",
+        "color_5": "#2157df",
+        "color_6": "#936fc2",
+        "color_7": "#189f14",
+        "color_8": "#cc2a97",
+        "color_9": "#daa112"
+      }
+    }  
+  ],
+  "templates": [
+    "404",
+    "article",
+    "blog",
+    "cart",
+    "collection",
+    "list-collections",
+    "index",
+    "page",
+    "product",
+    "search"
+  ]
+}
+{% endschema %}
